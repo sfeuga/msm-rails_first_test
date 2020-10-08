@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
   def index
-    render html: 'Hello World!'
+    render html: 'Music School Management App'
   end
 end

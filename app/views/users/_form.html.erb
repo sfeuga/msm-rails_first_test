@@ -1,0 +1,82 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :firstname %>
+    <%= form.text_field :firstname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_field :lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :billing_name %>
+    <%= form.text_field :billing_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zip_code %>
+    <%= form.text_field :zip_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :primary_phone_number %>
+    <%= form.text_field :primary_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :secondary_phone_number %>
+    <%= form.text_field :secondary_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emergency_contact_name %>
+    <%= form.text_field :emergency_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :emergency_phone_number %>
+    <%= form.text_field :emergency_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :signup_date %>
+    <%= form.date_select :signup_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :professor? %>
+    <%= form.check_box :professor? %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
