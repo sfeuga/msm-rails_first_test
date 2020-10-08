@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
+###
+# Users Controller Class
+#
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: %i[show edit update destroy]
 
   # GET /users
   # GET /users.json
@@ -9,8 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   # GET /users/1.json
-  def show
-  end
+  def show; end
 
   # GET /users/new
   def new
@@ -18,8 +22,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
@@ -62,13 +65,19 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:firstname, :lastname, :billing_name, :address, :zip_code, :city, :primary_phone_number, :secondary_phone_number, :email, :emergency_contact_name, :emergency_phone_number, :signup_date, :professor?)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:address, :zip_code, :city,
+                                 :firstname, :lastname, :billing_name,
+                                 :primary_phone_number, :secondary_phone_number, :email,
+                                 :emergency_contact_name, :emergency_phone_number,
+                                 :professor?,
+                                 :signup_date)
+  end
 end
